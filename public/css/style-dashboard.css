@@ -1,0 +1,165 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background: #FAFAFA;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #FAFAFA;
+}
+
+
+/* sidebar */
+
+.sidebar {
+    height: 100vh;
+    background-color: #FFBC04;
+    border-right: solid 5px #FF9800;
+    -webkit-box-shadow: 0px 0px 16px 2px rgba(0,0,0,0.10);
+    -moz-box-shadow: 0px 0px 16px 2px rgba(0,0,0,0.10);
+    box-shadow: 0px 0px 16px 2px rgba(0,0,0,0.10);
+}
+
+.sidebar-link {
+  transition: all .4s;
+}
+
+.sidebar-link:hover {
+  background-color: #FF9800;
+}
+
+.current {
+  background-color: #FF9800;
+  transition: all .3s;
+}
+
+.card {
+    background-color: white;
+    border-radius: 4px;
+    border: none;
+    margin-bottom: 20px;
+    -webkit-box-shadow: 0px 0px 16px 2px rgba(0,0,0,0.10);
+    -moz-box-shadow: 0px 0px 16px 2px rgba(0,0,0,0.10);
+    box-shadow: 0px 0px 16px 2px rgba(0,0,0,0.10);
+}
+
+.content-wrapper {
+    margin-left: 300px;
+}
+
+.btn-success {
+    background: #3FC75F;
+    border-bottom: solid 3px #28A745;
+}
+
+.btn {
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-yellow {
+    color: white;
+    background: #FFBC04;
+    border-color: #FF9800;
+    border-bottom: solid 3px #FF9800;
+}
+
+.btn-yellow:hover {
+    color: white;
+    background: #FF9800;
+    border-bottom: solid 3px rgba(0,0,0,.2);
+}
+
+.btn-info {
+    color: white;
+    background: #17a2b8;
+    border-color: #107787;
+    border-bottom: solid 3px #107787;
+}
+
+.btn-info:hover {
+    color: white;
+    background: #107787;
+    border-bottom: solid 3px rgba(0,0,0,.2);
+}
+
+.btn-red {
+    background: #EF5350;
+    color: white;
+    border-color: #D22926;
+    border-bottom: solid 3px #D22926;
+}
+
+.btn-red:hover {
+    color: white;
+    background: #D22926;
+    border-bottom: solid 3px rgba(0,0,0,.2);
+}
+
+.btn-infotop {
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    color: white;
+    background: #FFBC04;
+    border: none;
+    font-size: 13px;
+}
+
+.btn-infotop:hover {
+    color: #FF9800;
+}
+
+
+/* end sidebar */
+
+
+.btn-package {
+    color: #FF9800;
+    background: transparent;
+    border: solid 2px #FF9800;
+}
+
+.btn-package:hover {
+    color: white;
+    background: #FF9800;
+    border: solid 2px #FF9800;
+}
+
+.modal-header-categoria {
+    padding: 15px;
+    background-color: #FF9800;
+    color: white;
+}
+
+.btn-cancel {
+    color: white;
+    background-color: #dddddd;
+    border-color: #dddddd;
+    font-size: 18px;
+}
+
+.card-aviso {
+    background: #EF5350;
+    color: white;
+    border-bottom: solid 3px #D22926;
+    font-size: 14px;
+}
+
+.card-aviso-yellow {
+    background: #FFBC04;
+    color: white;
+    border-bottom: solid 3px #FF9800;
+    font-size: 14px;
+}
+
+
+
+
+
