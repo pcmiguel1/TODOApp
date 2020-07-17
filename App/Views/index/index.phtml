@@ -5,8 +5,8 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="container">
-		<a class="navbar-brand" href="#">
-			<img src="img/logo.png" class="img-fluid" style="width: 35px" alt="">
+		<a class="navbar-brand pr-4" href="#">
+			<img src="img/logo.png" class="img-fluid" style="width: 35px" alt="logo">
 			<span style="font-weight: 10">ToDo</span>
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +49,7 @@
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-body">
-						<button class="btn btn-primary">Add Task</button>
+						<button class="btn btn-primary" data-toggle="modal" data-target="#add_task">Add Task</button>
 						<button class="btn btn-outline-secondary">Add Section</button>
 						<hr>
 
@@ -84,6 +84,43 @@
 	</div>
 
 </section>
+
+
+<!-- modal -->
+
+<div class="modal fade" id="add_task">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header bg-primary text-white">
+				<h3 class="modal-title" style="font-weight: 100;">Add new Task</h3>
+				<i class="fas fa-tasks" style="font-size: 40px;"></i>
+			</div>
+			<div class="modal-body">
+				<form method="post" action="">
+					<div class="form-group">
+						<label for="name-task" class="form-conrol-label">Task Name</label>
+						<input type="text" class="form-control" style="box-shadow: none;" name="name" id="name-task" required>
+					</div>
+
+					<div class="form-group mb-4">
+						<label for="category-task" class="form-conrol-label">Task Date</label>
+						<select style="box-shadow: none;" name="category" id="category-task" class="form-control">
+							<option>gkgkdg</option>
+							<option>gkgkd</option>
+						</select>
+					</div>
+
+					<div class="modal-footer">
+						<button class="btn btn-outline-danger" data-dismiss="modal">Cancel</button>
+						<button class="btn btn-outline-success" type="submit">Add</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- end modal -->
 
 
 

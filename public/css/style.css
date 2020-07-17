@@ -20,7 +20,7 @@ input[type="checkbox"] {
     display: none;
 }
 
-label::before {
+.tasks label::before {
     content: "";
     background: url("../img/ok_50px.png");
     background-position: center;
@@ -39,7 +39,7 @@ input[type="checkbox"]:checked + label::before {
     transform: scale(1) rotateZ(0deg);
 }
 
-label::after {
+.tasks label::after {
     content: "";
     border: 2px solid #24ae60;
     width: 24px;
