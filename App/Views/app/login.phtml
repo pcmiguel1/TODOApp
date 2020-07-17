@@ -43,7 +43,7 @@
                                             </div>
                                             <input name="senha" style="box-shadow: none;" class="form-control" type="password" required>
                                         </div>
-                                        <button class="btn btn-primary btn-block" type="submit" style="text-transform: uppercase; font-weight: 400;">Sign In</button>
+                                        <button name="sign_in" class="btn btn-primary btn-block" type="submit" style="text-transform: uppercase; font-weight: 400;">Sign In</button>
                                         
                                     </form>
                                 </div>
@@ -52,7 +52,18 @@
                         </div>
 
 					</div>
-				</div>
+                </div>
+                
+                <?php if($this->view->login == 'error') { ?>
+                                   
+                    <div class="card mt-3 bg-danger">
+                        <div class="card-body">
+                            <span class="text-white"><i class="fas fa-exclamation-triangle"></i> Please log in with your account, or create a new one.</span>
+                        </div>
+                    </div>
+
+                <?php } ?>
+
 			</div>
 		</div>
 	</div>
