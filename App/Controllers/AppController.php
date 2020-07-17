@@ -40,6 +40,25 @@ class AppController extends Action {
 
     }
 
+    public function add() {
+
+        session_start();
+
+        $acao= isset($_GET['acao']) ? $_GET['acao'] : '';
+        if(!empty($acao)) {
+            if($acao == 'add_section') {
+                $section = Container::getModel('Section');
+                $section->__set('section_name', $_POST['name_section']);
+                $section->__set('user_id', $_SESSION['id']);
+
+                $section->addUserSection();
+                
+            }
+        } 
+        header('location: /');
+
+    }
+
 
 
 }

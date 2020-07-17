@@ -9,9 +9,20 @@ use MF\Model\Container;
 class IndexController extends Action {
 
 	public function inicio() {
-        
 
         $this->validaLogin();
+
+        $user = Container::getModel('User');
+
+        $user->__set('id', $_SESSION['id']);
+
+        $this->view->user = $user->getNomeUtilizador();
+
+        //Adicionar Sections
+
+        $section = Container::getModel('Section');
+        $section->__set('user_id', $_SESSION['id']);
+        $this->view->sections = $section->getUserSections();
 
 		$this->render('index');
     }

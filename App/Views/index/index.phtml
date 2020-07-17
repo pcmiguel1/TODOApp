@@ -25,7 +25,7 @@
 
 		<div class="nav-item dropdown">
 			<a class="nav-link dropdown-toggle" style="color: rgba(0,0,0,.5)" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			<i class="fas fa-user"></i> Miguel
+			<i class="fas fa-user"></i> <?= $this->view->user['user'] ?>
 			</a>
 			<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 			<a class="dropdown-item" href="#"><i class="fas fa-address-card"></i> Profile</a>
@@ -47,7 +47,8 @@
 				<div class="card">
 					<div class="card-body">
 						<button class="btn btn-primary" data-toggle="modal" data-target="#add_task">Add Task</button>
-						<button class="btn btn-outline-secondary">Add Section</button>
+						<button class="btn btn-outline-secondary" data-toggle="modal" data-target="#add_section">Add Section</button>
+						<button class="btn btn-light float-right"><i class="fas fa-folder"></i> Add Category</button>
 						<hr>
 
 						<div class="tasks">
@@ -134,7 +135,7 @@
 </section>
 
 
-<!-- modal -->
+<!-- modal add task -->
 
 <div class="modal fade" id="add_task">
 	<div class="modal-dialog">
@@ -151,7 +152,7 @@
 					</div>
 
 					<div class="form-group">
-						<label for="category-task" class="form-conrol-label">Task Date</label>
+						<label for="category-task" class="form-conrol-label">Task Category</label>
 						<select style="box-shadow: none;" name="category" id="category-task" class="form-control">
 							<option>gkgkdg</option>
 							<option>gkgkd</option>
@@ -161,9 +162,39 @@
 					<div class="form-group mb-4">
 						<label for="section-task" class="form-conrol-label">Task Section</label>
 						<select style="box-shadow: none;" name="section" id="section-task" class="form-control">
-							<option>gkgkdg</option>
-							<option>gkgkd</option>
+							<?php foreach ($this->view->sections as $key => $section) { ?>
+								<option><?=$section['section_name']?></option>
+							<?php } ?>
 						</select>
+					</div>
+
+					<div class="modal-footer">
+						<button class="btn btn-outline-danger" data-dismiss="modal">Cancel</button>
+						<button class="btn btn-outline-success" type="submit">Add</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- end modal -->
+
+
+<!-- modal add section -->
+
+<div class="modal fade" id="add_section">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header bg-primary text-white">
+				<h3 class="modal-title" style="font-weight: 100;">Add new Section</h3>
+				<i class="fas fa-puzzle-piece" style="font-size: 40px;"></i>
+			</div>
+			<div class="modal-body">
+				<form method="post" action="/add?acao=add_section">
+					<div class="form-group">
+						<label for="name-section" class="form-conrol-label">Section Name</label>
+						<input type="text" class="form-control" style="box-shadow: none;" name="name_section" id="name-section" required>
 					</div>
 
 					<div class="modal-footer">

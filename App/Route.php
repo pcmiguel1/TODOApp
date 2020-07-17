@@ -27,6 +27,12 @@ class Route extends Bootstrap {
 			'action' => 'sair'
 		);
 
+		$routes['add'] = array(
+			'route' => '/add',
+			'controller' => 'AppController',
+			'action' => 'add'
+		);
+
 		$this->setRoutes($routes);
 	}
 

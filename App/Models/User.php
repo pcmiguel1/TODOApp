@@ -47,6 +47,16 @@ class User extends Model {
         return $this;
     }
 
+    //Saber o nome do utilizador
+    public function getNomeUtilizador() {
+        $query = "select user from users where id = :id";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':id', $this->__get('id'));
+        $stmt->execute();
+
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
+    }
+
 }
 
 
