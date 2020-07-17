@@ -8,6 +8,14 @@ use MF\Model\Container;
 
 class AppController extends Action {
 
+    public function login() {
+
+
+        $this->render('login');
+
+    }
+
+
 
 }
 
