@@ -24,6 +24,12 @@ class IndexController extends Action {
         $section->__set('user_id', $_SESSION['id']);
         $this->view->sections = $section->getUserSections();
 
+        //Adicionar Categories
+
+        $category = Container::getModel('Category');
+        $category->__set('user_id', $_SESSION['id']);
+        $this->view->categories = $category->getUserCategories();
+
 		$this->render('index');
     }
     

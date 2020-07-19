@@ -54,6 +54,16 @@ class AppController extends Action {
                 $section->addUserSection();
                 
             }
+            elseif ($acao == 'add_category') {
+
+                $category = Container::getModel('Category');
+                $category->__set('category_name', $_POST['name_category']);
+                $category->__set('color', $_POST['color_category']);
+                $category->__set('user_id', $_SESSION['id']);
+
+                $category->addUserCategory();
+
+            }
         } 
         header('location: /');
 
