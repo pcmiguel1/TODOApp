@@ -20,7 +20,7 @@ class Section extends Model {
     }
 
     public function getUserSections() {
-        $query = "select section_name from user_sections where user_id = :user_id";
+        $query = "select id, section_name from user_sections where user_id = :user_id";
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':user_id', $this->__get('user_id'));
         $stmt->execute();

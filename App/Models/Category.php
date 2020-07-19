@@ -21,7 +21,7 @@ class Category extends Model {
     }
 
     public function getUserCategories() {
-        $query = "select category_name, color from user_categories where user_id = :user_id";
+        $query = "select id, category_name, color from user_categories where user_id = :user_id";
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':user_id', $this->__get('user_id'));
         $stmt->execute();

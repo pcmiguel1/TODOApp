@@ -64,6 +64,16 @@ class AppController extends Action {
                 $category->addUserCategory();
 
             }
+            elseif($acao == 'add_task') {
+
+                $task = Container::getModel('Task');
+                $task->__set('task_name', $_POST['name']);
+                $task->__set('category_id', $_POST['category']);
+                $task->__set('section_id', $_POST['section']);
+                $task->__set('user_id', $_SESSION['id']);
+
+                $task->addUserTask();
+            }
         } 
         header('location: /');
 

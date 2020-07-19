@@ -60,6 +60,11 @@
 						<hr>
 
 						<div class="tasks">
+
+							<?php foreach ($this->view->sections as $key => $section) { ?>
+								<h3><?=$section['section_name']?></h3>
+							<?php } ?>
+
 							<h3>Study</h3>
 							<div class="row">
 								<div class="col-md-4">
@@ -70,57 +75,6 @@
 								</div>
 								<div class="col-md-3 text-center pt-3">
 									<span class="badge badge-pill badge-primary p-2">Estudo</span>
-								</div>
-								<div class="col-md-3 text-center pt-3">
-									<span>July 17</span>
-								</div>
-								<div class="col-md-2 text-center pt-3">
-									<button class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
-									<button class="btn btn-outline-success ml-2"><i class="fas fa-pen"></i></button>
-								</div>
-
-								<div class="col-md-4">
-									<div class="group">
-										<input type="checkbox" id="xd" />
-										<label for="xd">Física</label>
-									</div>
-								</div>
-								<div class="col-md-3 text-center pt-3">
-									<span class="badge badge-pill badge-primary p-2">Estudo</span>
-								</div>
-								<div class="col-md-3 text-center pt-3">
-									<span>July 17</span>
-								</div>
-								<div class="col-md-2 text-center pt-3">
-									<button class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
-									<button class="btn btn-outline-success ml-2"><i class="fas fa-pen"></i></button>
-								</div>
-
-								<div class="col-md-4">
-									<div class="group">
-										<input type="checkbox" id="xd" />
-										<label for="xd">POO</label>
-									</div>
-								</div>
-								<div class="col-md-3 text-center pt-3">
-									<span class="badge badge-pill badge-primary p-2">Estudo</span>
-								</div>
-								<div class="col-md-3 text-center pt-3">
-									<span>July 17</span>
-								</div>
-								<div class="col-md-2 text-center pt-3">
-									<button class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
-									<button class="btn btn-outline-success ml-2"><i class="fas fa-pen"></i></button>
-								</div>
-
-								<div class="col-md-4">
-									<div class="group">
-										<input type="checkbox" id="xd" />
-										<label for="xd">Comprar cereais</label>
-									</div>
-								</div>
-								<div class="col-md-3 text-center pt-3">
-									<span class="badge badge-pill badge-success p-2">Compras</span>
 								</div>
 								<div class="col-md-3 text-center pt-3">
 									<span>July 17</span>
@@ -153,7 +107,7 @@
 				<i class="fas fa-tasks" style="font-size: 40px;"></i>
 			</div>
 			<div class="modal-body">
-				<form method="post" action="">
+				<form method="post" action="/add?acao=add_task">
 					<div class="form-group">
 						<label for="name-task" class="form-conrol-label">Task Name</label>
 						<input type="text" class="form-control" style="box-shadow: none;" name="name" id="name-task" required>
@@ -161,17 +115,18 @@
 
 					<div class="form-group">
 						<label for="category-task" class="form-conrol-label">Task Category</label>
-						<select style="box-shadow: none;" name="category" id="category-task" class="form-control">
-							<option>gkgkdg</option>
-							<option>gkgkd</option>
+						<select style="box-shadow: none;" name="category" id="category-task" class="form-control" required>
+						<?php foreach ($this->view->categories as $key => $category) { ?>
+							<option value="<?=$category['id']?>"><?=$category['category_name']?></option>
+						<?php } ?>
 						</select>
 					</div>
 
 					<div class="form-group mb-4">
 						<label for="section-task" class="form-conrol-label">Task Section</label>
-						<select style="box-shadow: none;" name="section" id="section-task" class="form-control">
+						<select style="box-shadow: none;" name="section" id="section-task" class="form-control" required>
 							<?php foreach ($this->view->sections as $key => $section) { ?>
-								<option><?=$section['section_name']?></option>
+								<option value="<?=$section['id']?>"><?=$section['section_name']?></option>
 							<?php } ?>
 						</select>
 					</div>
@@ -245,9 +200,8 @@
 
 					<div class="mb-3">
 						<h5>Created Categories</h5>
-
 						<?php foreach ($this->view->categories as $key => $category) { ?>
-							<span class="badge badge-pill badge-primary p-2 mb-2" style="background-color: <?=$category['color']?>;"><?=$category['category_name']?></span>
+							<a href="" class="badge badge-pill p-2 mb-2 text-white" style="cursor: pointer; background-color: <?=$category['color']?>;"><?=$category['category_name']?></a>
 						<?php } ?>
 
 					</div>

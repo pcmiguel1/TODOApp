@@ -49,3 +49,7 @@ input[type="checkbox"]:checked + label::before {
     top: 15px;
     border-radius: 50%;
 }
+
+#add_category a:hover {
+    content: "asdj" !important;
+}
