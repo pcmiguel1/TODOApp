@@ -23,7 +23,7 @@ class Task extends Model {
     }
 
     public function getUserTasks() {
-        $query = "select task_name, category_id, section_id, time from user_tasks where user_id = :user_id";
+        $query = "select id, task_name, category_id, section_id, time from user_tasks where user_id = :user_id";
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':user_id', $this->__get('user_id'));
         $stmt->execute();

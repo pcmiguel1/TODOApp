@@ -18,6 +18,12 @@ class IndexController extends Action {
 
         $this->view->user = $user->getNomeUtilizador();
 
+        //Tasks
+
+        $task = Container::getModel('Task');
+        $task->__set('user_id', $_SESSION['id']);
+        $this->view->tasks = $task->getUserTasks();
+
         //Adicionar Sections
 
         $section = Container::getModel('Section');

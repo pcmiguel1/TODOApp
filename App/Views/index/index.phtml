@@ -63,28 +63,42 @@
 
 							<?php foreach ($this->view->sections as $key => $section) { ?>
 								<h3><?=$section['section_name']?></h3>
+								<?php foreach ($this->view->tasks as $key => $task) { ?>
+
+									<?php if ($task['section_id'] == $section['id']) { ?>
+										
+										<?php foreach ($this->view->categories as $key => $category) { ?>
+
+											<?php if($task['category_id'] == $category['id']) { ?>
+												
+												<div class="row">
+													<div class="col-md-4">
+														<div class="group">
+															<input type="checkbox" id="xd<?=$task['id']?>" />
+															<label for="xd<?=$task['id']?>"><?=$task['task_name']?></label>
+														</div>
+													</div>
+													<div class="col-md-3 text-center pt-3">
+														<span class="badge badge-pill text-white p-2" style="background-color: <?=$category['color']?>"><?=$category['category_name']?></span>
+													</div>
+													<div class="col-md-3 text-center pt-3">
+														<span>July 17</span>
+													</div>
+													<div class="col-md-2 text-center pt-3">
+														<button class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
+														<button class="btn btn-outline-success ml-2"><i class="fas fa-pen"></i></button>
+													</div>
+												</div>
+
+											<?php } ?>
+
+										<?php } ?>
+
+									<?php } ?>
+								
+								<?php } ?>
+
 							<?php } ?>
-
-							<h3>Study</h3>
-							<div class="row">
-								<div class="col-md-4">
-									<div class="group">
-										<input type="checkbox" id="xd" />
-										<label for="xd">Matemática Discreta</label>
-									</div>
-								</div>
-								<div class="col-md-3 text-center pt-3">
-									<span class="badge badge-pill badge-primary p-2">Estudo</span>
-								</div>
-								<div class="col-md-3 text-center pt-3">
-									<span>July 17</span>
-								</div>
-								<div class="col-md-2 text-center pt-3">
-									<button class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
-									<button class="btn btn-outline-success ml-2"><i class="fas fa-pen"></i></button>
-								</div>
-
-							</div>
 
 						</div>
 
