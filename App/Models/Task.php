@@ -43,6 +43,13 @@ class Task extends Model {
         return $this;
     }
 
+    public function delteUserTask() {
+        $query = "delete from user_tasks where id = :id";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':id', $this->__get('id'));
+        $stmt->execute();
+    }
+
 }
 
 

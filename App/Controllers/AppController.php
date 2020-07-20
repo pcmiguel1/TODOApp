@@ -74,6 +74,14 @@ class AppController extends Action {
 
                 $task->addUserTask();
             }
+            elseif($acao == 'delete_task') {
+
+                $task = Container::getModel('Task');
+                $task->__set('id', $_GET['id']);
+                $task->delteUserTask();
+
+
+            }
         } 
         header('location: /');
 
