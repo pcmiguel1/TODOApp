@@ -21,6 +21,12 @@ class Route extends Bootstrap {
 			'action' => 'login'
 		);
 
+		$routes['archive'] = array(
+			'route' => '/archive',
+			'controller' => 'AppController',
+			'action' => 'archive'
+		);
+
 		$routes['sair'] = array(
 			'route' => '/sair',
 			'controller' => 'AuthController',

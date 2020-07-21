@@ -1,0 +1,98 @@
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+
+
+<!-- navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="container">
+		<a class="navbar-brand pr-4" href="#">
+			<img src="img/logo.png" class="img-fluid" style="width: 35px" alt="logo">
+			<span style="font-weight: 10">ToDo</span>
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="/"><i class="fas fa-list-alt"></i> Todo List</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" href="#"><i class="fas fa-archive"></i> Archive</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" style="color: rgba(0,0,0,.5)" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<i class="fas fa-user"></i> <?= $this->view->user['user'] ?>
+			</a>
+			<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+			<a class="dropdown-item" href=""><i class="fas fa-address-card"></i> Profile</a>
+			<a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Settings</a>
+			<a class="dropdown-item" href="/sair"><i class="fas fa-sign-out-alt"></i> Logout</a>
+			</div>
+		</div>
+	</div>
+</nav>
+
+<!-- end navbar -->
+
+
+<section>
+
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-body">
+
+						<div class="tasks">
+
+							<?php foreach ($this->view->sections as $key => $section) { ?>
+								<div>
+									<span style="font-size: 25px;"><?=$section['section_name']?></span>
+								</div>
+								<?php foreach ($this->view->tasks as $key => $task) { ?>
+
+									<?php if ($task['section_id'] == $section['id']) { ?>
+										
+										<?php foreach ($this->view->categories as $key => $category) { ?>
+
+											<?php if($task['category_id'] == $category['id']) { ?>
+												
+												<div class="row">
+													<div class="col-md-4 pt-3">
+                                                        <span style="font-size: 18px;"><strike><?=$task['task_name']?></strike></span>
+													</div>
+													<div class="col-md-3 text-center pt-3">
+														<span class="badge badge-pill text-white p-2" style="background-color: <?=$category['color']?>"><?=$category['category_name']?></span>
+													</div>
+													<div class="col-md-5 text-center pt-3">
+														<span><?=date_format(new DateTime($task['time']), 'd/m/y')?></span>
+													</div>
+												</div>
+
+											<?php } ?>
+
+										<?php } ?>
+
+									<?php } ?>
+								
+								<?php } ?>
+
+							<?php } ?>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+
+
+

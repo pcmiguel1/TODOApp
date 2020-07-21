@@ -40,6 +40,36 @@ class AppController extends Action {
 
     }
 
+    public function archive() {
+
+        $this->validaLogin();
+
+        $user = Container::getModel('User');
+
+        $user->__set('id', $_SESSION['id']);
+
+        $this->view->user = $user->getNomeUtilizador();
+
+        $task = Container::getModel('Task');
+        $task->__set('user_id', $_SESSION['id']);
+        $task->__set('finalizado', True);
+        $this->view->tasks = $task->getUserTasks();
+
+        //Adicionar Sections
+
+        $section = Container::getModel('Section');
+        $section->__set('user_id', $_SESSION['id']);
+        $this->view->sections = $section->getUserSections();
+
+        //Adicionar Categories
+
+        $category = Container::getModel('Category');
+        $category->__set('user_id', $_SESSION['id']);
+        $this->view->categories = $category->getUserCategories();
+
+        $this->render('archive');
+    }
+
     public function add() {
 
         session_start();
@@ -101,6 +131,16 @@ class AppController extends Action {
             }
         } 
         header('location: /');
+
+    }
+
+    public function validaLogin() {
+
+        session_start();
+
+        if(!isset($_SESSION['id']) || $_SESSION['id'] == '') {
+            header('Location: /login?login=error');
+        }   
 
     }
 
