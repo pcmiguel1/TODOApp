@@ -62,7 +62,10 @@
 						<div class="tasks">
 
 							<?php foreach ($this->view->sections as $key => $section) { ?>
-								<h3><?=$section['section_name']?></h3>
+								<div>
+									<span style="font-size: 25px;"><?=$section['section_name']?></span>
+									<button style="border: none;" class="text-muted ml-2" data-toggle="modal" data-target="#remove_section" onclick="remove_section(<?=$section['id']?>);"><i class="fas fa-trash"></i></button>
+								</div>
 								<?php foreach ($this->view->tasks as $key => $task) { ?>
 
 									<?php if ($task['section_id'] == $section['id']) { ?>
@@ -234,6 +237,34 @@
 
 <!-- end modal -->
 
+
+<!-- modal remove section -->
+
+<div class="modal fade" id="remove_section">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header bg-primary text-white">
+				<h3 class="modal-title" style="font-weight: 100;">Remove Section</h3>
+				<i class="fas fa-puzzle-piece" style="font-size: 40px;"></i>
+			</div>
+			<div class="modal-body">
+
+				<p>
+					if you click the <b>"Remove"</b> button you will delete the section and the tasks for that section.
+				</p>
+
+				<div class="modal-footer">
+					<button class="btn btn-outline-danger" data-dismiss="modal">Cancel</button>
+					<a id="remove_section_button" href="" class="btn btn-outline-success">Remove</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- end modal -->
+
+
 <script>
 
 const pickr1 = new Pickr({
@@ -269,6 +300,13 @@ function Checked(id) {
 	
 	var form_check = 'form_check' + id;
 	document.getElementById(form_check).submit();
+
+}
+
+function remove_section(id) {
+
+	var href_button = '/add?acao=remove_section&id=' + id;
+	document.getElementById('remove_section_button').href = href_button;
 
 }
 

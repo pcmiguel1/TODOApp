@@ -38,6 +38,15 @@ class Section extends Model {
         return $this;
     }
 
+    public function deleteUserSection() {
+        $query = "delete from user_sections where id = :id";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':id', $this->__get('id'));
+        $stmt->execute();
+
+        return $this;
+    }
+
 }
 
 

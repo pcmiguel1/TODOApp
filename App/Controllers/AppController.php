@@ -87,6 +87,18 @@ class AppController extends Action {
                 $task->__set('id', $_POST['check_id']);
                 $task->finalizarUserTask();
             }
+            elseif($acao == 'remove_section') {
+
+                $task = Container::getModel('Task');
+                $task->__set('user_id', $_SESSION['id']);
+                $task->__set('section_id', $_GET['id']);
+                $task->deleteTasksSection();
+
+                $section = Container::getModel('Section');
+                $section->__set('id', $_GET['id']);
+                $section->deleteUserSection();
+
+            }
         } 
         header('location: /');
 

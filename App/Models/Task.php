@@ -52,6 +52,14 @@ class Task extends Model {
         $stmt->execute();
     }
 
+    public function deleteTasksSection() {
+        $query = "delete from user_tasks where user_id = :user_id and section_id = :section_id";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':user_id', $this->__get('user_id'));
+        $stmt->bindValue(':section_id', $this->__get('section_id'));
+        $stmt->execute();
+    }
+
     public function finalizarUserTask() {
         $query = "update user_tasks set finalizado = 1 where id = :id";
         $stmt = $this->db->prepare($query);
