@@ -80,7 +80,12 @@ class AppController extends Action {
                 $task->__set('id', $_GET['id']);
                 $task->delteUserTask();
 
+            }
+            elseif($acao == 'check') {
 
+                $task = Container::getModel('Task');
+                $task->__set('id', $_POST['check_id']);
+                $task->finalizarUserTask();
             }
         } 
         header('location: /');

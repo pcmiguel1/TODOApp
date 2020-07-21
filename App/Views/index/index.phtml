@@ -74,8 +74,10 @@
 												<div class="row">
 													<div class="col-md-4">
 														<div class="group">
-															<input type="checkbox" id="xd<?=$task['id']?>" />
-															<label for="xd<?=$task['id']?>"><?=$task['task_name']?></label>
+															<form method="post" action="/add?acao=check" id="form_check<?=$task['id']?>">
+																<input type="checkbox" name="check_id" id="task<?=$task['id']?>" value="<?=$task['id']?>" onclick="Checked(<?=$task['id']?>)" />
+																<label for="task<?=$task['id']?>"><?=$task['task_name']?></label>
+															</form>
 														</div>
 													</div>
 													<div class="col-md-3 text-center pt-3">
@@ -261,6 +263,16 @@ pickr1.on('save', instance => {
 	document.getElementById('color').value = color;
 	
 });
+
+
+function Checked(id) {
+	
+	var form_check = 'form_check' + id;
+	document.getElementById(form_check).submit();
+
+}
+
+
 </script>
 
 

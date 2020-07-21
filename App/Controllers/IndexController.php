@@ -22,6 +22,7 @@ class IndexController extends Action {
 
         $task = Container::getModel('Task');
         $task->__set('user_id', $_SESSION['id']);
+        $task->__set('finalizado', False);
         $this->view->tasks = $task->getUserTasks();
 
         //Adicionar Sections

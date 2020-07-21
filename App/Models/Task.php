@@ -13,6 +13,7 @@ class Task extends Model {
     private $section_id;
     private $time;
     private $user_id;
+    private $finalizado;
 
     public function __get($atributo) {
         return $this->$atributo;
@@ -23,9 +24,10 @@ class Task extends Model {
     }
 
     public function getUserTasks() {
-        $query = "select id, task_name, category_id, section_id, time from user_tasks where user_id = :user_id";
+        $query = "select id, task_name, category_id, section_id, time, finalizado from user_tasks where user_id = :user_id and finalizado = :finalizado";
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':user_id', $this->__get('user_id'));
+        $stmt->bindValue(':finalizado', $this->__get('finalizado'));
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
@@ -45,6 +47,13 @@ class Task extends Model {
 
     public function delteUserTask() {
         $query = "delete from user_tasks where id = :id";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':id', $this->__get('id'));
+        $stmt->execute();
+    }
+
+    public function finalizarUserTask() {
+        $query = "update user_tasks set finalizado = 1 where id = :id";
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':id', $this->__get('id'));
         $stmt->execute();
